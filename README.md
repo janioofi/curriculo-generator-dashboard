@@ -3,7 +3,7 @@
 Link do gerador: https://geradordecurriculo.vercel.app/
 
 ## O que é este projeto
-Este projeto foi criado com o intuito ajudar desenvolvedores a criar um curriculo simples ATM.
+Este projeto foi criado com o intuito ajudar desenvolvedores a criar um curriculo simples ATS.
 
 ## Tecnologias Utilizadas
 - Front-end
