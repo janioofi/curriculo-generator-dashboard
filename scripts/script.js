@@ -45,7 +45,7 @@ document.getElementById('curriculoForm').addEventListener('submit', function (ev
         const a = document.createElement('a'); // Cria um elemento <a>
         a.style.display = 'none'; // Oculta o elemento
         a.href = url; // Define o href como o blob URL
-        a.download = `${nomeCompleto}-curriculo.docx`; // Define o nome do arquivo
+        a.download = `${curriculo.nomeCompleto}-curriculo.docx`; // Define o nome do arquivo
         document.body.appendChild(a); // Adiciona o elemento ao DOM
         a.click(); // Simula um clique no elemento
         window.URL.revokeObjectURL(url); // Libera o blob URL
