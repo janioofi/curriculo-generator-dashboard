@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./assets/styles.css">
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
     <title>Formulário de Currículo</title>
 </head>
 <body>
@@ -16,7 +17,7 @@
             </div>
 
             <div class="form-group">
-                <label for="celular">Celular:</label>
+                <label for="celular">Celular com DDD:</label>
                 <input type="text" id="celular">
             </div>
 
@@ -27,36 +28,36 @@
 
             <div class="form-group">
                 <label for="cidade">Cidade:</label>
-                <input type="text" id="cidade">
+                <input placeholder="Ex: São Paulo" type="text" id="cidade">
             </div>
 
             <div class="form-group">
                 <label for="estado">Estado:</label>
-                <input type="text" id="estado">
+                <input placeholder="SP" type="text" id="estado">
             </div>
 
             <div class="form-group">
                 <label for="email">E-mail:</label>
-                <input type="email" id="email">
+                <input placeholder="Ex: janioofi@gmail.com" type="email" id="email">
             </div>
 
             <div class="form-group">
                 <label for="linkedinUsername">LinkedIn Username:</label>
-                <input type="text" id="linkedinUsername">
+                <input placeholder="Ex: janioofi" type="text" id="linkedinUsername">
             </div>
 
             <div class="form-group">
                 <label for="githubUsername">GitHub Username:</label>
-                <input type="text" id="githubUsername">
+                <input placeholder="Ex: janioofi" type="text" id="githubUsername">
             </div>
 
             <div class="form-group">
-                <label for="titulo">Título:</label>
-                <input type="text" id="titulo">
+                <label for="titulo">Título do Curriculo:</label>
+                <input placeholder="Ex: Desenvolvedor Front-end" type="text" id="titulo">
             </div>
 
             <div class="form-group">
-                <label for="resumo">Resumo:</label>
+                <label for="resumo">Resumo sobre você:</label>
                 <textarea id="resumo" rows="4"></textarea>
             </div>
 
@@ -64,35 +65,42 @@
             <div class="form-group">
                 <label for="idioma">Idiomas:</label>
                 <input type="text" id="idioma" placeholder="Ex: Inglês">
-                <button type="button" id="addIdioma">Adicionar Idioma</button>
+                <button type="button" id="addIdioma">Adicionar</button>
                 <ul id="listaIdiomas"></ul>
             </div>
 
             <div class="form-group">
                 <label for="frontEnd">Habilidades Front-end:</label>
                 <input type="text" id="frontEnd" placeholder="Ex: JavaScript">
-                <button type="button" id="addFrontEnd">Adicionar Front-end</button>
+                <button type="button" id="addFrontEnd">Adicionar</button>
                 <ul id="listaFrontEnd"></ul>
             </div>
 
             <div class="form-group">
                 <label for="backEnd">Habilidades Back-end:</label>
                 <input type="text" id="backEnd" placeholder="Ex: Java">
-                <button type="button" id="addBackEnd">Adicionar Back-end</button>
+                <button type="button" id="addBackEnd">Adicionar</button>
                 <ul id="listaBackEnd"></ul>
             </div>
 
             <div class="form-group">
                 <label for="bancoDados">Habilidades de Banco de Dados:</label>
                 <input type="text" id="bancoDados" placeholder="Ex: PostgreSQL">
-                <button type="button" id="addBancoDados">Adicionar Banco de Dados</button>
+                <button type="button" id="addBancoDados">Adicionar</button>
                 <ul id="listaBancoDados"></ul>
+            </div>
+
+            <div class="form-group">
+                <label for="pessoais">Habilidades Pessoais:</label>
+                <input type="text" id="pessoais" placeholder="Ex: Proatividade">
+                <button type="button" id="addPessoais">Adicionar</button>
+                <ul id="listaPessoais"></ul>
             </div>
 
             <div class="form-group">
                 <label for="outros">Outras Habilidades:</label>
                 <input type="text" id="outros" placeholder="Ex: Docker">
-                <button type="button" id="addOutros">Adicionar Outras Habilidades</button>
+                <button type="button" id="addOutros">Adicionar</button>
                 <ul id="listaOutros"></ul>
             </div>
 
@@ -107,7 +115,7 @@
             </div>
             <div class="form-group">
                 <label for="mesAnoInicioExperiencia">Mês/Ano de Início:</label>
-                <input type="text" id="mesAnoInicioExperiencia" placeholder="Ex: 09/2024" >
+                <input type="text" id="mesAnoInicioExperiencia" placeholder="Ex: 09/2024">
             </div>
             <div class="form-group">
                 <label for="mesAnoFinalExperiencia">Mês/Ano Final:</label>
@@ -123,10 +131,10 @@
             <h3>Educação</h3>
             <div class="form-group">
                 <label for="descricaoEducacao">Descrição:</label>
-                <input type="text" id="descricaoEducacao">
+                <input placeholder="Ex: Graduação em Engenharia de Software" type="text" id="descricaoEducacao">
             </div>
             <div class="form-group">
-                <label for="lugarEducacao">Lugar:</label>
+                <label for="lugarEducacao">Instituição:</label>
                 <input type="text" id="lugarEducacao">
             </div>
             <div class="form-group">
@@ -140,10 +148,19 @@
             <button type="button" id="addEducacao">Adicionar Educação</button>
             <ul id="listaEducacao"></ul>
 
-            <button type="submit">Enviar Currículo</button>
+            <button type="submit">Gerar Currículo</button>
         </form>
     </div>
 
-    <script src="script.js"></script>
+    <footer>
+        <p>
+            &copy; 2024 Janio Filho | 
+            Email: janioofi@gmail.com | 
+            LinkedIn: <a href="https://linkedin.com/in/janioofi" target="_blank">linkedin.com/in/janioofi</a> | 
+            GitHub: <a href="https://github.com/janioofi" target="_blank">github.com/janioofi</a>
+        </p>
+    </footer>
+
+    <script src="./scripts/script.js"></script>
 </body>
 </html>

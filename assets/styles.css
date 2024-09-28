@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: 'Roboto Condensed', Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+h3 {
+    margin-top: 20px;
+    color: #5cb85c;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Inclui padding e borda no cálculo de largura */
+    margin: 0; /* Remove margens */
+}
+
+textarea {
+    resize: vertical; /* Permite apenas redimensionar verticalmente */
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button[type="button"] { /* Para os botões que não são de enviar */
+    background-color: #5cb85c; /* Cor padrão para botões que não são de enviar */
+}
+
+button[type="button"]:hover {
+    background-color: #4cae4c; /* Tom mais escuro para botões que não são de enviar ao passar o mouse */
+}
+
+button[type="submit"] { /* Para o botão de enviar currículo */
+    background-color: #6f42c1; /* Cor roxa */
+}
+
+button[type="submit"]:hover {
+    background-color: #5a32a1; /* Tom de roxo mais escuro ao passar o mouse */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+}
+
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    background-color: #f4f4f4; /* Cor de fundo do footer */
+    border-top: 1px solid #ccc; /* Linha superior para separação */
+}
+
+footer p {
+    margin: 0; /* Remove margens do footer */
+    font-size: 14px; /* Tamanho da fonte menor */
+}
+
+footer a {
+    color: #6f42c1; /* Cor dos links */
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

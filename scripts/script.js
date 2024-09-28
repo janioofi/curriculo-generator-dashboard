@@ -19,14 +19,14 @@ document.getElementById('curriculoForm').addEventListener('submit', function (ev
             backEnd: Array.from(document.querySelectorAll('#listaBackEnd li')).map(li => li.textContent),
             bancoDados: Array.from(document.querySelectorAll('#listaBancoDados li')).map(li => li.textContent),
             outros: Array.from(document.querySelectorAll('#listaOutros li')).map(li => li.textContent),
-            pessoais: [] // Adicione se necessário
+            pessoais: Array.from(document.querySelectorAll('#listaPessoais li')).map(li => li.textContent), // Nova linha para habilidades pessoais
         },
         experiencias: Array.from(document.querySelectorAll('#listaExperiencias li')).map(li => JSON.parse(li.dataset.experiencia)),
         educacao: Array.from(document.querySelectorAll('#listaEducacao li')).map(li => JSON.parse(li.dataset.educacao))
     };
 
     // Envia os dados para o back-end
-    fetch('http://localhost:8080/api/v1/curriculo/gerar', {
+    fetch('https://curriculo-generator-backend.up.railway.app/api/v1/curriculo/gerar', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ document.getElementById('curriculoForm').addEventListener('submit', function (ev
         const a = document.createElement('a'); // Cria um elemento <a>
         a.style.display = 'none'; // Oculta o elemento
         a.href = url; // Define o href como o blob URL
-        a.download = 'curriculo.docx'; // Define o nome do arquivo
+        a.download = `${nomeCompleto}-curriculo.docx`; // Define o nome do arquivo
         document.body.appendChild(a); // Adiciona o elemento ao DOM
         a.click(); // Simula um clique no elemento
         window.URL.revokeObjectURL(url); // Libera o blob URL
@@ -68,12 +68,15 @@ function addListItem(inputId, listId) {
     }
 }
 
+// Adicionando habilidades
 document.getElementById('addIdioma').addEventListener('click', () => addListItem('idioma', 'listaIdiomas'));
 document.getElementById('addFrontEnd').addEventListener('click', () => addListItem('frontEnd', 'listaFrontEnd'));
 document.getElementById('addBackEnd').addEventListener('click', () => addListItem('backEnd', 'listaBackEnd'));
 document.getElementById('addBancoDados').addEventListener('click', () => addListItem('bancoDados', 'listaBancoDados'));
 document.getElementById('addOutros').addEventListener('click', () => addListItem('outros', 'listaOutros'));
+document.getElementById('addPessoais').addEventListener('click', () => addListItem('pessoais', 'listaPessoais')); // Nova linha para habilidades pessoais
 
+// Função para adicionar experiência
 document.getElementById('addExperiencia').addEventListener('click', function() {
     const experiencia = {
         cargo: document.getElementById('cargo').value,
@@ -97,6 +100,7 @@ document.getElementById('addExperiencia').addEventListener('click', function() {
     document.getElementById('descricaoExperiencia').value = '';
 });
 
+// Função para adicionar educação
 document.getElementById('addEducacao').addEventListener('click', function() {
     const educacao = {
         descricao: document.getElementById('descricaoEducacao').value,
