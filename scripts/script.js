@@ -121,3 +121,76 @@ document.getElementById('addEducacao').addEventListener('click', function() {
     document.getElementById('mesAnoInicioEducacao').value = '';
     document.getElementById('mesAnoFinalEducacao').value = '';
 });
+
+
+// Controle dos passos dos formulários. 
+
+let currentStep = 1;
+
+const stepOne = document.getElementById('stepOne');
+const stepTwo = document.getElementById('stepTwo');
+const stepThree = document.getElementById('stepThree');
+const stepFour = document.getElementById('stepFour');
+const stepFive = document.getElementById('stepFive');
+const stepSix = document.getElementById('stepSix');
+
+stepTwo.style.display = 'none';
+stepThree.style.display = 'none';
+stepFour.style.display = 'none';
+stepFive.style.display = 'none';
+stepSix.style.display = 'none'; 
+
+const stepController = {
+    1: {
+        element: stepOne,
+        next: 2,
+        previous: null
+    },
+    2: {
+        element: stepTwo,
+        next: 3,
+        previous: 1
+    },
+    3: {
+        element: stepThree,
+        next: 4,
+        previous: 2
+    },
+    4: {
+        element: stepFour,
+        next: 5,
+        previous: 3
+    },
+    5: {
+        element: stepFive,
+        next: 6,
+        previous: 4
+    },
+    6: {
+        element: stepSix,
+        next: null,
+        previous: 5
+    }
+}
+
+function nextStep() {
+    if (currentStep === 6) return;
+    const nextStep = stepController[currentStep].next;
+    stepController[currentStep].element.style.display = 'none';
+    stepController[nextStep].element.style.display = 'block';
+    currentStep = nextStep;
+}
+
+function previousStep() {
+    if (currentStep === 1) return;
+    const previousStep = stepController[currentStep].previous;
+    stepController[currentStep].element.style.display = 'none';
+    stepController[previousStep].element.style.display = 'block';
+    currentStep = previousStep;
+}
+
+
+
+
+
+
