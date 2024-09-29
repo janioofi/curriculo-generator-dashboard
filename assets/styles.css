@@ -1,19 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
+html, body {
+    height: 100%; /* Garante que o html e o body ocupem 100% da altura da tela */
+    margin: 0;
+}
+
 body {
+    display: flex;
+    flex-direction: column; /* Alinha os elementos verticalmente */
     font-family: 'Roboto Condensed', Arial, sans-serif;
     background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
+    padding-top: 20px;
 }
 
 .container {
-    max-width: 600px;
+    max-width: 600px; /* Define uma largura máxima para o container */
+    width: 90%; /* Faz com que o container ocupe 90% da largura da tela */
     margin: auto;
     padding: 20px;
     background: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1; /* Faz com que o container ocupe o espaço disponível */
 }
 
 h2 {
@@ -58,30 +66,30 @@ button {
     border-radius: 4px;
     cursor: pointer;
     margin-top: 10px;
-
-    
-   
 }
-
 
 button[type="button"] { /* Para os botões que não são de enviar */
     background-color: #5cb85c; /* Cor padrão para botões que não são de enviar */
-    &.next-btn {
-        background-color: #6f42c1;
-    }
-    &.back-btn {
-        background-color: #472484;
-    }
+}
+
+button.next-btn {
+    background-color: #6f42c1;
+}
+
+button.back-btn {
+    background-color: #472484;
 }
 
 button[type="button"]:hover {
     background-color: #4cae4c; /* Tom mais escuro para botões que não são de enviar ao passar o mouse */
-    &.next-btn:hover {
-        background-color: #5a32a1;
-    }
-    &.back-btn:hover {
-        background-color: #3f1f75;
-    }
+}
+
+button.next-btn:hover {
+    background-color: #5a32a1;
+}
+
+button.back-btn:hover {
+    background-color: #3f1f75;
 }
 
 button[type="submit"] { /* Para o botão de enviar currículo */
@@ -102,11 +110,15 @@ li {
 }
 
 footer {
+    width: 100%; /* Garante que o footer ocupe 100% da largura */
     margin-top: 20px;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     text-align: center;
-    background-color: #f4f4f4; /* Cor de fundo do footer */
+    background-color: #b6b6b6; /* Cor de fundo do footer */
     border-top: 1px solid #ccc; /* Linha superior para separação */
+    position: relative; /* Ajusta a posição do footer */
+    bottom: 0;
 }
 
 footer p {
@@ -121,4 +133,29 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%; /* Largura máxima para telas menores */
+    }
+
+    h2, h3 {
+        font-size: 1.5rem; /* Reduz o tamanho da fonte dos títulos em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px; /* Reduz o padding do container em telas muito pequenas */
+    }
+
+    button {
+        padding: 8px; /* Reduz o padding dos botões em telas muito pequenas */
+    }
+
+    h2, h3 {
+        font-size: 1.2rem; /* Reduz ainda mais o tamanho da fonte dos títulos em telas muito pequenas */
+    }
 }
