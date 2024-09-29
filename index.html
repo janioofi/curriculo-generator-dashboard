@@ -6,17 +6,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/styles.css">
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Gerador de Currículo</title>
 </head>
 
 <body>
-    <div class="container">
-        <h2>Gerador de Currículo</h2>
+    <div class="max-w-6xl w-full mx-auto p-5 bg-white rounded-lg shadow-lg flex-1">
+        <!-- Progress -->
+        <ol class="flex items-center justify-between w-full p-3 space-x-2 text-sm font-medium text-center text-gray-500 sm:text-base sm:p-4 sm:space-x-4 rtl:space-x-reverse w-full overflow-auto scrollbar">
+            <li id="progress-1" class="flex items-center">
+                <span class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0">
+                    1
+                </span>
+
+                <span class="text-nowrap">Dados Pessoais</span>
+
+                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4"/>
+                </svg>
+            </li>
+
+            <li id="progress-2" class="flex items-center">
+                <span class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0">
+                    2
+                </span>
+
+                <span class="text-nowrap">Redes Sociais</span>
+
+                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4"/>
+                </svg>
+            </li>
+            
+            <li id="progress-3" class="flex items-center">
+                <span class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0">
+                    3
+                </span>
+
+                <span class="text-nowrap">Resumo</span>
+
+                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4"/>
+                </svg>
+            </li>
+
+            <li id="progress-4" class="flex items-center">
+                <span class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0">
+                    4
+                </span>
+
+                <span class="text-nowrap">Habilidades</span>
+
+                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4"/>
+                </svg>
+            </li>
+
+            <li id="progress-5" class="flex items-center">
+                <span class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0">
+                    5
+                </span>
+
+                <span class="text-nowrap">Experiências</span>
+
+                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4"/>
+                </svg>
+            </li>
+
+            <li id="progress-6" class="flex items-center">
+                <span class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0">
+                    6
+                </span>
+
+                <span class="text-nowrap">Educação</span>
+
+                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4"/>
+                </svg>
+            </li>
+
+            <li id="progress-7" class="flex items-center">
+                <span class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0">
+                    7
+                </span>
+
+                <span class="text-nowrap">Cursos e Certificações</span>
+            </li>
+        </ol>
+        
+        <h2 class="font-bold text-2xl my-5">Gerador de Currículo</h2>
+
         <form id="curriculoForm">
 
             <!-- step 1 -->
             <div id="stepOne">
-                <h3>Dados Pessoais</h3>
+                <h3 class="font-bold mb-4 text-lg">Dados Pessoais</h3>
                 <div class="form-group">
                     <label for="nomeCompleto">Nome Completo:</label>
                     <input type="text" id="nomeCompleto" required>
@@ -46,15 +131,16 @@
 
             <!-- step 2 -->
             <div id="stepTwo">
-                <h3>Dados Pessoais</h3>
+                <h3 class="font-bold mb-4 text-lg">Dados Pessoais</h3>
+
                 <div class="form-group">
                     <label for="celular">Celular com DDD:</label>
-                    <input type="text" id="celular" placeholder="Ex: (99) 99999-9999" required>
+                    <input type="text" id="celular" placeholder="Ex: (99) 99999-9999" required maxlength="15">
                 </div>
 
                 <div class="form-group">
                     <label for="email">E-mail:</label>
-                    <input placeholder="Ex: janioofi@gmail.com" type="text" id="email" required>
+                    <input placeholder="Ex: janioofi@gmail.com" type="email" id="email" required>
                 </div>
 
                 <div class="form-group">
@@ -72,7 +158,8 @@
 
             <!-- step 3 -->
             <div id="stepThree">
-                <h3>Dados Pessoais</h3>
+                <h3 class="font-bold mb-4 text-lg">Dados Pessoais</h3>
+
                 <div class="form-group">
                     <label for="titulo">Título do Curriculo:</label>
                     <input placeholder="Ex: Desenvolvedor Front-end" type="text" id="titulo" required>
@@ -88,7 +175,8 @@
 
             <!-- step 4 -->
             <div id="stepFour">
-                <h3>Habilidades</h3>
+                <h3 class="font-bold mb-4 text-lg">Habilidades</h3>
+
                 <div class="form-group">
                     <label for="idioma">Idiomas:</label>
                     <input type="text" id="idioma" placeholder="Ex: Inglês">
@@ -136,7 +224,8 @@
 
             <!-- step 5 -->
             <div id="stepFive">
-                <h3>Experiências</h3>
+                <h3 class="font-bold mb-4 text-lg">Experiências</h3>
+
                 <div class="form-group">
                     <label for="cargo">Cargo:</label>
                     <input type="text" id="cargo">
@@ -165,7 +254,8 @@
 
             <!-- step 6 -->
             <div id="stepSix">
-                <h3>Educação</h3>
+                <h3 class="font-bold mb-4 text-lg">Educação</h3>
+
                 <div class="form-group">
                     <label for="descricaoEducacao">Descrição:</label>
                     <input placeholder="Ex: Graduação em Engenharia de Software" type="text" id="descricaoEducacao">
@@ -190,7 +280,8 @@
 
             <!-- step 7 -->
             <div id="stepSeven">
-                <h3>Cursos e Certificações</h3>
+                <h3 class="font-bold mb-4 text-lg">Cursos e Certificações</h3>
+
                 <div class="form-group">
                     <label for="descricaoCurso">Descrição:</label>
                     <input placeholder="Ex: Java Avançado" type="text" id="descricaoCurso">
