@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,160 +8,189 @@
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
     <title>Gerador de Currículo</title>
 </head>
+
 <body>
     <div class="container">
         <h2>Gerador de Currículo</h2>
         <form id="curriculoForm">
-            <div class="form-group">
-                <label for="nomeCompleto">Nome Completo:</label>
-                <input type="text" id="nomeCompleto">
+
+            <!-- step 1 -->
+            <div id="stepOne">
+                <div class="form-group">
+                    <label for="nomeCompleto">Nome Completo:</label>
+                    <input type="text" id="nomeCompleto">
+                </div>
+
+                <div class="form-group">
+                    <label for="bairro">Bairro:</label>
+                    <input type="text" id="bairro">
+                </div>
+
+                <div class="form-group">
+                    <label for="cidade">Cidade:</label>
+                    <input placeholder="Ex: São Paulo" type="text" id="cidade">
+                </div>
+
+                <div class="form-group">
+                    <label for="estado">Estado:</label>
+                    <input placeholder="SP" type="text" id="estado">
+                </div>
+                <button class="next-btn" type="button" onclick="nextStep()">Próximo</button>
+            </div>
+            <!-- step 2 -->
+            <div id="stepTwo">
+
+                <div class="form-group">
+                    <label for="celular">Celular com DDD:</label>
+                    <input type="text" id="celular">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input placeholder="Ex: janioofi@gmail.com" type="email" id="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="linkedinUsername">LinkedIn Username:</label>
+                    <input placeholder="Ex: janioofi" type="text" id="linkedinUsername">
+                </div>
+
+                <div class="form-group">
+                    <label for="githubUsername">GitHub Username:</label>
+                    <input placeholder="Ex: janioofi" type="text" id="githubUsername">
+                </div>
+                <button class="next-btn" type="button" onclick="nextStep()">Próximo</button>
+                <button class="back-btn" type="button" onclick="previousStep()">Voltar</button>
+            </div>
+            <!-- step 3 -->
+            <div id="stepThree">
+                <div class="form-group">
+                    <label for="titulo">Título do Curriculo:</label>
+                    <input placeholder="Ex: Desenvolvedor Front-end" type="text" id="titulo">
+                </div>
+
+                <div class="form-group">
+                    <label for="resumo">Resumo sobre você:</label>
+                    <textarea id="resumo" rows="4"></textarea>
+                </div>
+                <button class="next-btn" type="button" onclick="nextStep()">Próximo</button>
+                <button class="back-btn" type="button" onclick="previousStep()">Voltar</button>
+            </div>
+            <!-- step 4 -->
+
+            <div id="stepFour">
+                <h3>Habilidades</h3>
+                <div class="form-group">
+                    <label for="idioma">Idiomas:</label>
+                    <input type="text" id="idioma" placeholder="Ex: Inglês">
+                    <button type="button" id="addIdioma">Adicionar</button>
+                    <ul id="listaIdiomas"></ul>
+                </div>
+
+                <div class="form-group">
+                    <label for="frontEnd">Habilidades Front-end:</label>
+                    <input type="text" id="frontEnd" placeholder="Ex: JavaScript">
+                    <button type="button" id="addFrontEnd">Adicionar</button>
+                    <ul id="listaFrontEnd"></ul>
+                </div>
+
+                <div class="form-group">
+                    <label for="backEnd">Habilidades Back-end:</label>
+                    <input type="text" id="backEnd" placeholder="Ex: Java">
+                    <button type="button" id="addBackEnd">Adicionar</button>
+                    <ul id="listaBackEnd"></ul>
+                </div>
+
+                <div class="form-group">
+                    <label for="bancoDados">Habilidades de Banco de Dados:</label>
+                    <input type="text" id="bancoDados" placeholder="Ex: PostgreSQL">
+                    <button type="button" id="addBancoDados">Adicionar</button>
+                    <ul id="listaBancoDados"></ul>
+                </div>
+
+                <div class="form-group">
+                    <label for="pessoais">Habilidades Pessoais:</label>
+                    <input type="text" id="pessoais" placeholder="Ex: Proatividade">
+                    <button type="button" id="addPessoais">Adicionar</button>
+                    <ul id="listaPessoais"></ul>
+                </div>
+
+                <div class="form-group">
+                    <label for="outros">Outras Habilidades:</label>
+                    <input type="text" id="outros" placeholder="Ex: Docker">
+                    <button type="button" id="addOutros">Adicionar</button>
+                    <ul id="listaOutros"></ul>
+                </div>
+                <button class="next-btn" type="button" onclick="nextStep()">Próximo</button>
+                <button class="back-btn" type="button" onclick="previousStep()">Voltar</button>
+            </div>
+            <!-- step 5 -->
+            <div id="stepFive">
+                <h3>Experiências</h3>
+                <div class="form-group">
+                    <label for="cargo">Cargo:</label>
+                    <input type="text" id="cargo">
+                </div>
+                <div class="form-group">
+                    <label for="empresa">Empresa:</label>
+                    <input type="text" id="empresa">
+                </div>
+                <div class="form-group">
+                    <label for="mesAnoInicioExperiencia">Mês/Ano de Início:</label>
+                    <input type="text" id="mesAnoInicioExperiencia" placeholder="Ex: 09/2024">
+                </div>
+                <div class="form-group">
+                    <label for="mesAnoFinalExperiencia">Mês/Ano Final:</label>
+                    <input type="text" id="mesAnoFinalExperiencia" placeholder="Ex: Atualmente">
+                </div>
+                <div class="form-group">
+                    <label for="descricaoExperiencia">Descrição:</label>
+                    <textarea id="descricaoExperiencia" rows="4"></textarea>
+                </div>
+                <button type="button" id="addExperiencia">Adicionar Experiência</button>
+                <ul id="listaExperiencias"></ul>
+                <button class="next-btn" type="button" onclick="nextStep()">Próximo</button>
+                <button class="back-btn" type="button" onclick="previousStep()">Voltar</button>
             </div>
 
-            <div class="form-group">
-                <label for="celular">Celular com DDD:</label>
-                <input type="text" id="celular">
-            </div>
+            <!-- step 6 -->
+            <div id="stepSix">
+                <h3>Educação</h3>
+                <div class="form-group">
+                    <label for="descricaoEducacao">Descrição:</label>
+                    <input placeholder="Ex: Graduação em Engenharia de Software" type="text" id="descricaoEducacao">
+                </div>
+                <div class="form-group">
+                    <label for="lugarEducacao">Instituição:</label>
+                    <input type="text" id="lugarEducacao">
+                </div>
+                <div class="form-group">
+                    <label for="mesAnoInicioEducacao">Mês/Ano de Início:</label>
+                    <input type="text" id="mesAnoInicioEducacao" placeholder="Ex: 01/2022">
+                </div>
+                <div class="form-group">
+                    <label for="mesAnoFinalEducacao">Mês/Ano Final:</label>
+                    <input type="text" id="mesAnoFinalEducacao" placeholder="Ex: Atualmente">
+                </div>
+                <button type="button" id="addEducacao">Adicionar Educação</button>
+                <ul id="listaEducacao"></ul>
 
-            <div class="form-group">
-                <label for="bairro">Bairro:</label>
-                <input type="text" id="bairro">
+                <button type="submit">Gerar Currículo</button>
+                <button class="back-btn" type="button" onclick="previousStep()">Voltar</button>
             </div>
-
-            <div class="form-group">
-                <label for="cidade">Cidade:</label>
-                <input placeholder="Ex: São Paulo" type="text" id="cidade">
-            </div>
-
-            <div class="form-group">
-                <label for="estado">Estado:</label>
-                <input placeholder="SP" type="text" id="estado">
-            </div>
-
-            <div class="form-group">
-                <label for="email">E-mail:</label>
-                <input placeholder="Ex: janioofi@gmail.com" type="email" id="email">
-            </div>
-
-            <div class="form-group">
-                <label for="linkedinUsername">LinkedIn Username:</label>
-                <input placeholder="Ex: janioofi" type="text" id="linkedinUsername">
-            </div>
-
-            <div class="form-group">
-                <label for="githubUsername">GitHub Username:</label>
-                <input placeholder="Ex: janioofi" type="text" id="githubUsername">
-            </div>
-
-            <div class="form-group">
-                <label for="titulo">Título do Curriculo:</label>
-                <input placeholder="Ex: Desenvolvedor Front-end" type="text" id="titulo">
-            </div>
-
-            <div class="form-group">
-                <label for="resumo">Resumo sobre você:</label>
-                <textarea id="resumo" rows="4"></textarea>
-            </div>
-
-            <h3>Habilidades</h3>
-            <div class="form-group">
-                <label for="idioma">Idiomas:</label>
-                <input type="text" id="idioma" placeholder="Ex: Inglês">
-                <button type="button" id="addIdioma">Adicionar</button>
-                <ul id="listaIdiomas"></ul>
-            </div>
-
-            <div class="form-group">
-                <label for="frontEnd">Habilidades Front-end:</label>
-                <input type="text" id="frontEnd" placeholder="Ex: JavaScript">
-                <button type="button" id="addFrontEnd">Adicionar</button>
-                <ul id="listaFrontEnd"></ul>
-            </div>
-
-            <div class="form-group">
-                <label for="backEnd">Habilidades Back-end:</label>
-                <input type="text" id="backEnd" placeholder="Ex: Java">
-                <button type="button" id="addBackEnd">Adicionar</button>
-                <ul id="listaBackEnd"></ul>
-            </div>
-
-            <div class="form-group">
-                <label for="bancoDados">Habilidades de Banco de Dados:</label>
-                <input type="text" id="bancoDados" placeholder="Ex: PostgreSQL">
-                <button type="button" id="addBancoDados">Adicionar</button>
-                <ul id="listaBancoDados"></ul>
-            </div>
-
-            <div class="form-group">
-                <label for="pessoais">Habilidades Pessoais:</label>
-                <input type="text" id="pessoais" placeholder="Ex: Proatividade">
-                <button type="button" id="addPessoais">Adicionar</button>
-                <ul id="listaPessoais"></ul>
-            </div>
-
-            <div class="form-group">
-                <label for="outros">Outras Habilidades:</label>
-                <input type="text" id="outros" placeholder="Ex: Docker">
-                <button type="button" id="addOutros">Adicionar</button>
-                <ul id="listaOutros"></ul>
-            </div>
-
-            <h3>Experiências</h3>
-            <div class="form-group">
-                <label for="cargo">Cargo:</label>
-                <input type="text" id="cargo">
-            </div>
-            <div class="form-group">
-                <label for="empresa">Empresa:</label>
-                <input type="text" id="empresa">
-            </div>
-            <div class="form-group">
-                <label for="mesAnoInicioExperiencia">Mês/Ano de Início:</label>
-                <input type="text" id="mesAnoInicioExperiencia" placeholder="Ex: 09/2024">
-            </div>
-            <div class="form-group">
-                <label for="mesAnoFinalExperiencia">Mês/Ano Final:</label>
-                <input type="text" id="mesAnoFinalExperiencia" placeholder="Ex: Atualmente">
-            </div>
-            <div class="form-group">
-                <label for="descricaoExperiencia">Descrição:</label>
-                <textarea id="descricaoExperiencia" rows="4"></textarea>
-            </div>
-            <button type="button" id="addExperiencia">Adicionar Experiência</button>
-            <ul id="listaExperiencias"></ul>
-
-            <h3>Educação</h3>
-            <div class="form-group">
-                <label for="descricaoEducacao">Descrição:</label>
-                <input placeholder="Ex: Graduação em Engenharia de Software" type="text" id="descricaoEducacao">
-            </div>
-            <div class="form-group">
-                <label for="lugarEducacao">Instituição:</label>
-                <input type="text" id="lugarEducacao">
-            </div>
-            <div class="form-group">
-                <label for="mesAnoInicioEducacao">Mês/Ano de Início:</label>
-                <input type="text" id="mesAnoInicioEducacao" placeholder="Ex: 01/2022">
-            </div>
-            <div class="form-group">
-                <label for="mesAnoFinalEducacao">Mês/Ano Final:</label>
-                <input type="text" id="mesAnoFinalEducacao" placeholder="Ex: Atualmente">
-            </div>
-            <button type="button" id="addEducacao">Adicionar Educação</button>
-            <ul id="listaEducacao"></ul>
-
-            <button type="submit">Gerar Currículo</button>
         </form>
     </div>
 
     <footer>
         <p>
-            &copy; 2024 Janio Filho | 
-            Email: janioofi@gmail.com | 
-            LinkedIn: <a href="https://linkedin.com/in/janioofi" target="_blank">linkedin.com/in/janioofi</a> | 
+            &copy; 2024 Janio Filho |
+            Email: janioofi@gmail.com |
+            LinkedIn: <a href="https://linkedin.com/in/janioofi" target="_blank">linkedin.com/in/janioofi</a> |
             GitHub: <a href="https://github.com/janioofi" target="_blank">github.com/janioofi</a>
         </p>
     </footer>
 
     <script src="./scripts/script.js"></script>
 </body>
+
 </html>
