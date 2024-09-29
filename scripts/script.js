@@ -355,6 +355,12 @@ function nextStep() {
     const nextStep = stepController[currentStep].next;
     stepController[currentStep].element.style.display = 'none';
     stepController[nextStep].element.style.display = 'block';
+
+    const progress = document.getElementById(`progress-${currentStep}`);
+    progress.classList.add("!text-blue-600");
+    const span = progress.querySelector('span:first-child');
+    span.classList.add('!border-blue-500');
+
     currentStep = nextStep;
 }
 
@@ -364,6 +370,11 @@ function previousStep() {
     stepController[currentStep].element.style.display = 'none';
     stepController[previousStep].element.style.display = 'block';
     currentStep = previousStep;
+
+    const progress = document.getElementById(`progress-${currentStep}`);
+    progress.classList.remove("!text-blue-600");
+    const span = progress.querySelector('span:first-child');
+    span.classList.remove('!border-blue-500');
 }
 
 
