@@ -22,11 +22,13 @@ document.getElementById('curriculoForm').addEventListener('submit', function (ev
             pessoais: Array.from(document.querySelectorAll('#listaPessoais li')).map(li => li.textContent), // Nova linha para habilidades pessoais
         },
         experiencias: Array.from(document.querySelectorAll('#listaExperiencias li')).map(li => JSON.parse(li.dataset.experiencia)),
-        educacao: Array.from(document.querySelectorAll('#listaEducacao li')).map(li => JSON.parse(li.dataset.educacao))
+        educacao: Array.from(document.querySelectorAll('#listaEducacao li')).map(li => JSON.parse(li.dataset.educacao)),
+        cursos: Array.from(document.querySelectorAll('#listaCurso li')).map(li => JSON.parse(li.dataset.cursos))
     };
 
     // Envia os dados para o back-end
-    fetch('https://curriculo-generator-backend.up.railway.app/api/v1/curriculo/gerar', {
+    // fetch('https://curriculo-generator-backend.up.railway.app/api/v1/curriculo/gerar', {
+    fetch('http://localhost:8080/api/v1/curriculo/gerar', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -122,6 +124,25 @@ document.getElementById('addEducacao').addEventListener('click', function() {
     document.getElementById('mesAnoFinalEducacao').value = '';
 });
 
+// Função para adicionar curso
+document.getElementById('addCurso').addEventListener('click', function() {
+    const curso = {
+        descricao: document.getElementById('descricaoCurso').value,
+        instituicao: document.getElementById('instituicaoCurso').value,
+        anoConclusao: document.getElementById('anoConlusaoCurso').value
+    };
+
+    const listItem = document.createElement('li');
+    listItem.textContent = `${curso.descricao} - ${curso.instituicao} (${curso.anoConclusao})`;
+    listItem.dataset.cursos = JSON.stringify(curso); // Armazena a educação completa
+    document.getElementById('listaCurso').appendChild(listItem);
+
+    // Limpa os campos de curso
+    document.getElementById('descricaoCurso').value = '';
+    document.getElementById('instituicaoCurso').value = '';
+    document.getElementById('anoConlusaoCurso').value = '';
+});
+
 
 // Controle dos passos dos formulários. 
 
@@ -133,12 +154,14 @@ const stepThree = document.getElementById('stepThree');
 const stepFour = document.getElementById('stepFour');
 const stepFive = document.getElementById('stepFive');
 const stepSix = document.getElementById('stepSix');
+const stepSeven = document.getElementById('stepSeven');
 
 stepTwo.style.display = 'none';
 stepThree.style.display = 'none';
 stepFour.style.display = 'none';
 stepFive.style.display = 'none';
 stepSix.style.display = 'none'; 
+stepSeven.style.display = 'none'; 
 
 const stepController = {
     1: {
@@ -168,13 +191,18 @@ const stepController = {
     },
     6: {
         element: stepSix,
-        next: null,
+        next: 7,
         previous: 5
+    },
+    7: {
+        element: stepSeven,
+        next: null,
+        previous: 6
     }
 }
 
 function nextStep() {
-    if (currentStep === 6) return;
+    if (currentStep === 7) return;
     const nextStep = stepController[currentStep].next;
     stepController[currentStep].element.style.display = 'none';
     stepController[nextStep].element.style.display = 'block';

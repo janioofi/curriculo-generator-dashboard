@@ -37,6 +37,7 @@
                 </div>
                 <button class="next-btn" type="button" onclick="nextStep()">Próximo</button>
             </div>
+
             <!-- step 2 -->
             <div id="stepTwo">
 
@@ -62,6 +63,7 @@
                 <button class="next-btn" type="button" onclick="nextStep()">Próximo</button>
                 <button class="back-btn" type="button" onclick="previousStep()">Voltar</button>
             </div>
+
             <!-- step 3 -->
             <div id="stepThree">
                 <div class="form-group">
@@ -76,8 +78,8 @@
                 <button class="next-btn" type="button" onclick="nextStep()">Próximo</button>
                 <button class="back-btn" type="button" onclick="previousStep()">Voltar</button>
             </div>
-            <!-- step 4 -->
 
+            <!-- step 4 -->
             <div id="stepFour">
                 <h3>Habilidades</h3>
                 <div class="form-group">
@@ -124,6 +126,7 @@
                 <button class="next-btn" type="button" onclick="nextStep()">Próximo</button>
                 <button class="back-btn" type="button" onclick="previousStep()">Voltar</button>
             </div>
+
             <!-- step 5 -->
             <div id="stepFive">
                 <h3>Experiências</h3>
@@ -174,6 +177,27 @@
                 </div>
                 <button type="button" id="addEducacao">Adicionar Educação</button>
                 <ul id="listaEducacao"></ul>
+                <button class="next-btn" type="button" onclick="nextStep()">Próximo</button>
+                <button class="back-btn" type="button" onclick="previousStep()">Voltar</button>
+            </div>
+
+            <!-- step 7 -->
+            <div id="stepSeven">
+                <h3>Cursos e Certificações</h3>
+                <div class="form-group">
+                    <label for="descricaoCurso">Descrição:</label>
+                    <input placeholder="Ex: Java Avançado" type="text" id="descricaoCurso">
+                </div>
+                <div class="form-group">
+                    <label for="instituicaoCurso">Instituição:</label>
+                    <input type="text" id="instituicaoCurso" placeholder="Ex: Udemy">
+                </div>
+                <div class="form-group">
+                    <label for="anoConlusaoCurso">Ano conclusão</label>
+                    <input type="text" id="anoConlusaoCurso" placeholder="Ex: 2022">
+                </div>
+                <button type="button" id="addCurso">Adicionar Curso ou Certficação</button>
+                <ul id="listaCurso"></ul>
 
                 <button type="submit">Gerar Currículo</button>
                 <button class="back-btn" type="button" onclick="previousStep()">Voltar</button>
