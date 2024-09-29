@@ -71,13 +71,58 @@ function addListItem(inputId, listId) {
     }
 }
 
-// Adicionando habilidades
-document.getElementById('addIdioma').addEventListener('click', () => addListItem('idioma', 'listaIdiomas'));
-document.getElementById('addFrontEnd').addEventListener('click', () => addListItem('frontEnd', 'listaFrontEnd'));
-document.getElementById('addBackEnd').addEventListener('click', () => addListItem('backEnd', 'listaBackEnd'));
-document.getElementById('addBancoDados').addEventListener('click', () => addListItem('bancoDados', 'listaBancoDados'));
-document.getElementById('addOutros').addEventListener('click', () => addListItem('outros', 'listaOutros'));
-document.getElementById('addPessoais').addEventListener('click', () => addListItem('pessoais', 'listaPessoais')); // Nova linha para habilidades pessoais
+// Função para adicionar habilidades
+function adicionarHabilidade(tipo, inputId, listaId) {
+    const habilidade = document.getElementById(inputId).value;
+    if (!habilidade) return; // Não adiciona se o campo estiver vazio
+
+    const listItem = document.createElement('li');
+    listItem.textContent = habilidade;
+
+    // Botão de remover
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = 'Remover';
+    removeBtn.style.backgroundColor = 'red'; // Cor de fundo vermelha
+    removeBtn.style.color = 'white'; // Texto branco
+    removeBtn.style.border = 'none'; // Remove a borda padrão
+    removeBtn.style.borderRadius = '5px'; // Bordas arredondadas
+    removeBtn.style.padding = '5px 10px'; // Espaçamento interno
+    removeBtn.style.cursor = 'pointer'; // Muda o cursor para indicar que é clicável
+    removeBtn.onclick = function() {
+        document.getElementById(listaId).removeChild(listItem); // Remove a habilidade da lista
+    };
+
+    listItem.appendChild(removeBtn); // Adiciona o botão de remover ao item da lista
+    document.getElementById(listaId).appendChild(listItem); // Adiciona a habilidade à lista
+
+    // Limpa o campo de habilidade
+    document.getElementById(inputId).value = '';
+}
+
+// Adicionando event listeners para as habilidades
+document.getElementById('addIdioma').addEventListener('click', function() {
+    adicionarHabilidade('idioma', 'idioma', 'listaIdiomas');
+});
+
+document.getElementById('addFrontEnd').addEventListener('click', function() {
+    adicionarHabilidade('frontEnd', 'frontEnd', 'listaFrontEnd');
+});
+
+document.getElementById('addBackEnd').addEventListener('click', function() {
+    adicionarHabilidade('backEnd', 'backEnd', 'listaBackEnd');
+});
+
+document.getElementById('addBancoDados').addEventListener('click', function() {
+    adicionarHabilidade('bancoDados', 'bancoDados', 'listaBancoDados');
+});
+
+document.getElementById('addPessoais').addEventListener('click', function() {
+    adicionarHabilidade('pessoais', 'pessoais', 'listaPessoais');
+});
+
+document.getElementById('addOutros').addEventListener('click', function() {
+    adicionarHabilidade('outros', 'outros', 'listaOutros');
+});
 
 // Função para adicionar experiência
 document.getElementById('addExperiencia').addEventListener('click', function() {
@@ -205,7 +250,6 @@ document.getElementById('addCurso').addEventListener('click', function() {
     document.getElementById('instituicaoCurso').value = '';
     document.getElementById('anoConlusaoCurso').value = '';
 });
-
 
 // Controle dos passos dos formulários. 
 let currentStep = 1;
