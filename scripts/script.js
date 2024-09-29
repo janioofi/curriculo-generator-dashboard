@@ -93,6 +93,27 @@ document.getElementById('addExperiencia').addEventListener('click', function() {
     const listItem = document.createElement('li');
     listItem.textContent = `${experiencia.cargo} - ${experiencia.empresa} (${experiencia.mesAnoInicio} - ${experiencia.mesAnoFinal})`;
     listItem.dataset.experiencia = JSON.stringify(experiencia); // Armazena a experiência completa
+
+    // Botão de remover
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = 'Remover';
+    removeBtn.style.backgroundColor = 'red'; // Cor de fundo vermelha
+    removeBtn.style.color = 'white'; // Texto branco
+    removeBtn.style.border = 'none'; // Remove a borda padrão
+    removeBtn.style.borderRadius = '5px'; // Bordas arredondadas
+    removeBtn.style.padding = '5px 10px'; // Espaçamento interno
+    removeBtn.style.cursor = 'pointer'; // Muda o cursor para indicar que é clicável
+    removeBtn.onmouseover = function() {
+        this.style.backgroundColor = 'darkred'; // Muda a cor ao passar o mouse
+    };
+    removeBtn.onmouseout = function() {
+        this.style.backgroundColor = 'red'; // Retorna à cor original
+    };
+    removeBtn.onclick = function () {
+        document.getElementById('listaExperiencias').removeChild(listItem);
+    };
+
+    listItem.appendChild(removeBtn);
     document.getElementById('listaExperiencias').appendChild(listItem);
 
     // Limpa os campos de experiência
@@ -115,6 +136,27 @@ document.getElementById('addEducacao').addEventListener('click', function() {
     const listItem = document.createElement('li');
     listItem.textContent = `${educacao.descricao} - ${educacao.lugar} (${educacao.mesAnoInicio} - ${educacao.mesAnoFinal})`;
     listItem.dataset.educacao = JSON.stringify(educacao); // Armazena a educação completa
+
+    // Botão de remover
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = 'Remover';
+    removeBtn.style.backgroundColor = 'red'; // Cor de fundo vermelha
+    removeBtn.style.color = 'white'; // Texto branco
+    removeBtn.style.border = 'none'; // Remove a borda padrão
+    removeBtn.style.borderRadius = '5px'; // Bordas arredondadas
+    removeBtn.style.padding = '5px 10px'; // Espaçamento interno
+    removeBtn.style.cursor = 'pointer'; // Muda o cursor para indicar que é clicável
+    removeBtn.onmouseover = function() {
+        this.style.backgroundColor = 'darkred'; // Muda a cor ao passar o mouse
+    };
+    removeBtn.onmouseout = function() {
+        this.style.backgroundColor = 'red'; // Retorna à cor original
+    };
+    removeBtn.onclick = function () {
+        document.getElementById('listaEducacao').removeChild(listItem);
+    };
+
+    listItem.appendChild(removeBtn);
     document.getElementById('listaEducacao').appendChild(listItem);
 
     // Limpa os campos de educação
@@ -134,7 +176,28 @@ document.getElementById('addCurso').addEventListener('click', function() {
 
     const listItem = document.createElement('li');
     listItem.textContent = `${curso.descricao} - ${curso.instituicao} (${curso.anoConclusao})`;
-    listItem.dataset.cursos = JSON.stringify(curso); // Armazena a educação completa
+    listItem.dataset.cursos = JSON.stringify(curso); // Armazena o curso completo
+
+    // Botão de remover
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = 'Remover';
+    removeBtn.style.backgroundColor = 'red'; // Cor de fundo vermelha
+    removeBtn.style.color = 'white'; // Texto branco
+    removeBtn.style.border = 'none'; // Remove a borda padrão
+    removeBtn.style.borderRadius = '5px'; // Bordas arredondadas
+    removeBtn.style.padding = '5px 10px'; // Espaçamento interno
+    removeBtn.style.cursor = 'pointer'; // Muda o cursor para indicar que é clicável
+    removeBtn.onmouseover = function() {
+        this.style.backgroundColor = 'darkred'; // Muda a cor ao passar o mouse
+    };
+    removeBtn.onmouseout = function() {
+        this.style.backgroundColor = 'red'; // Retorna à cor original
+    };
+    removeBtn.onclick = function () {
+        document.getElementById('listaCurso').removeChild(listItem);
+    };
+
+    listItem.appendChild(removeBtn);
     document.getElementById('listaCurso').appendChild(listItem);
 
     // Limpa os campos de curso
@@ -145,7 +208,6 @@ document.getElementById('addCurso').addEventListener('click', function() {
 
 
 // Controle dos passos dos formulários. 
-
 let currentStep = 1;
 
 const stepOne = document.getElementById('stepOne');

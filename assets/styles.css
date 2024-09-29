@@ -159,3 +159,16 @@ footer a:hover {
         font-size: 1.2rem; /* Reduz ainda mais o tamanho da fonte dos títulos em telas muito pequenas */
     }
 }
+
+.remove-btn {
+    background-color: red; /* Cor de fundo vermelha */
+    color: white; /* Texto branco */
+    border: none; /* Remove a borda padrão */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 5px 10px; /* Espaçamento interno */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+
+.remove-btn:hover {
+    background-color: darkred; /* Muda a cor ao passar o mouse */
+}
