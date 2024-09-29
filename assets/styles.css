@@ -58,14 +58,30 @@ button {
     border-radius: 4px;
     cursor: pointer;
     margin-top: 10px;
+
+    
+   
 }
+
 
 button[type="button"] { /* Para os botões que não são de enviar */
     background-color: #5cb85c; /* Cor padrão para botões que não são de enviar */
+    &.next-btn {
+        background-color: #6f42c1;
+    }
+    &.back-btn {
+        background-color: #472484;
+    }
 }
 
 button[type="button"]:hover {
     background-color: #4cae4c; /* Tom mais escuro para botões que não são de enviar ao passar o mouse */
+    &.next-btn:hover {
+        background-color: #5a32a1;
+    }
+    &.back-btn:hover {
+        background-color: #3f1f75;
+    }
 }
 
 button[type="submit"] { /* Para o botão de enviar currículo */
