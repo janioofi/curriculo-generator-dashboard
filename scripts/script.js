@@ -363,5 +363,45 @@ function validation() {
 }
 
 
+function inputMask() {
+
+    document.querySelectorAll('input, textarea').forEach(
+        input => {
+            input.addEventListener('input', function (e) {
+                const mask = e.target.getAttribute('mask')
+                const inputType = e.target.getAttribute('inputType')
+                const value = e.target.value
+                if (inputType && inputType === 'numeric') {
+                    e.target.value = value.replace(/\D/g, '')
+                }
+                if (mask) {
+                    e.target.value = applyMask(e.target.value, mask)
+                }
+            })
+        } 
+    )
+}
+
+function applyMask(value, mask) {
+    let result = '';
+    let valuePosition = 0;
+    if (value === null || value === undefined || value === '') return ''
+
+    for (let i = 0; i < mask.length; i++) {
+        if (valuePosition >= value.length) break;
+        if (mask[i] === '#') {
+            result += value[valuePosition];
+            valuePosition++;
+        } else {
+            result += mask[i];
+        }
+    }
+    
+
+    return result;
+}
+
+inputMask()
+
 
 
