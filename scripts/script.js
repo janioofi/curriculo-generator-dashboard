@@ -312,46 +312,11 @@ const stepController = {
 }
 
 function nextStep() {
-    // Verifica se estamos no passo 1
-    if (document.getElementById('stepOne').style.display !== 'none') {
-        // Valida campos obrigatórios do passo 1
-        const nomeCompleto = document.getElementById('nomeCompleto').value.trim();
-        const cidade = document.getElementById('cidade').value.trim();
-        const estado = document.getElementById('estado').value.trim();
-
-        if (!nomeCompleto || !cidade || !estado) {
-            alert('Por favor, preencha todos os campos obrigatórios: Nome Completo, Cidade e Estado.');
-            return; // Não avança se os campos obrigatórios não estiverem preenchidos
-        }
-    }
-
-    // Verifica se estamos no passo 2
-    if (document.getElementById('stepTwo').style.display !== 'none') {
-        // Valida campos obrigatórios do passo 2
-        const celular = document.getElementById('celular').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const linkedinUsername = document.getElementById('linkedinUsername').value.trim();
-        const githubUsername = document.getElementById('githubUsername').value.trim();
-
-        if (!celular || !email || !linkedinUsername || !githubUsername) {
-            alert('Por favor, preencha todos os campos obrigatórios: Celular, E-mail, LinkedIn Username e GitHub Username.');
-            return; // Não avança se os campos obrigatórios não estiverem preenchidos
-        }
-    }
-
-    // Verifica se estamos no passo 3
-    if (document.getElementById('stepThree').style.display !== 'none') {
-        // Valida campos obrigatórios do passo 3
-        const titulo = document.getElementById('titulo').value.trim();
-        const resumo = document.getElementById('resumo').value.trim();
-
-        if (!titulo || !resumo) {
-            alert('Por favor, preencha todos os campos obrigatórios: Título e Resumo.');
-            return; // Não avança se os campos obrigatórios não estiverem preenchidos
-        }
-    }
+    const isValid = validation()
 
     if (currentStep === 7) return;
+    if (!isValid) return;
+
     const nextStep = stepController[currentStep].next;
     stepController[currentStep].element.style.display = 'none';
     stepController[nextStep].element.style.display = 'block';
@@ -377,7 +342,25 @@ function previousStep() {
     span.classList.remove('!border-blue-500');
 }
 
+function validation() {
+    
+    //Remove todas as mensagens de erro que possam existir
+    document.querySelectorAll('.text-red-500').forEach(error => error.remove())
+    //Seta a variável isValid como true para que possa ser alterada caso algum campo obrigatório não seja preenchido
+    let isValid = true
+    //Obtem o passo atual para verificar os campos obrigatórios
+    stepController[currentStep].element.querySelectorAll('input, textarea').forEach(input => {
+        if (input.required && input.value.trim() === '') {
+            isValid = false
+            const errorElement = document.createElement('span')
+            errorElement.textContent = 'Campo obrigatório'
+            errorElement.className = 'text-red-500 italic text-xs'
+            input.parentElement.appendChild(errorElement)
+        }
+    })
 
+    return isValid
+}
 
 
 
